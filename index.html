@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="logo.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Joseph Waldron</title>
+    <!-- Using Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="makeLookCool.css" />
+  </head>
+
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function toAbout() {
+        window.location.href = "about.html";
+      }
+    </script>
+    <header>
+      <nav
+        class="navbar navbar-expand-xl navbar-dark fixed-top"
+        style="background-color: #21374c"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand">
+            <img src="logo.png" width="50" alt="" />
+            Joseph Waldron</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About me</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="resume.html">Resume</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Me</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="store.html">Store</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Content Here! -->
+    <div class="homePage">
+      <div class="home_text">
+        <h4>Hi, I am</h4>
+        <h1 style="color: #ebb54e">Joseph Waldron</h1>
+        <h4 style="color: #5cc3ae">Welcome to my portfolio site!</h4>
+        <p style="color: #ebecef">
+          Since starting high school I have always loved working with computers.
+          What started as a fun hobby quickly turned into an obsession.
+        </p>
+        <button
+          type="button"
+          class="btn btn-primary"
+          style="
+            background-color: #21374c;
+            border-color: #21374c;
+            font-size: 150%;
+            width: 50%;
+          "
+          onclick="toAbout()"
+        >
+          Learn more
+        </button>
+      </div>
+      <img src="squareMe.jpg" alt="me" />
+    </div>
+  </body>
+</html>
