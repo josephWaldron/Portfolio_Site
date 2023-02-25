@@ -59,7 +59,9 @@ function purchaseClicked() {
       "Thank you " +
         name +
         " for your order! Joseph will send a conformation email ASAP!"
-    ); //moved data sending to the end
+    );
+    window.location.href = "index.html";
+    //moved data sending to the end
     axios.defaults.headers.post["Content-Type"] = "application/json";
     axios
       .post("https://formsubmit.co/ajax/waldrojo@kean.edu", {
