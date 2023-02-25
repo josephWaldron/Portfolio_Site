@@ -13,10 +13,13 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="makeLookCool.css" />
+    <link rel="stylesheet" href="store.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="store.js" async></script>
   </head>
   <body>
     <script
@@ -72,6 +75,103 @@
         </div>
       </nav>
     </header>
+    <h1 style="margin-top: 80px">Available services</h1>
+    <div class="items">
+      <div class="product">
+        <!-- product containing div -->
+        <h3 class="title">Basic Computer Build</h3>
+        <!-- item name -->
+        <img class="image" src="photos/motherboard-fill (1).svg" />
+        <!-- product image -->
+        <strong class="price">$100</strong>
+        <!-- item price -->
+        <button class="add-to-cart">Add to Cart<br><i class="bi bi-cart-plus"></i></button>
+        <!-- add to cart button -->
+      </div>
+      <div class="product">
+        <!-- product containing div -->
+        <h3 class="title">Water cooled Computer Build</h3>
+        <!-- item name -->
+        <img class="image" src="photos/computer.jpg" />
+        <!-- product image -->
+        <strong class="price">$500</strong>
+        <!-- item price -->
+        <button class="add-to-cart">Add to Cart<br><i class="bi bi-cart-plus"></i></button>
+        <!-- add to cart button -->
+      </div>
+      <div class="product">
+        <!-- product containing div -->
+        <h3 class="title">Oil change (you must supply oil)</h3>
+        <!-- item name -->
+        <img class="image" src="photos/car-front-fill.svg" />
+        <!-- product image -->
+        <strong class="price">$50</strong>
+        <!-- item price -->
+        <button class="add-to-cart">Add to Cart<br><i class="bi bi-cart-plus"></i></button>
+        <!-- add to cart button -->
+      </div>
+      <div class="product">
+        <!-- product containing div -->
+        <h3 class="title">One hour of Joseph's time</h3>
+        <!-- item name -->
+        <img class="image" src="photos/alarm.svg" />
+        <!-- product image -->
+        <strong class="price">$50</strong>
+        <!-- item price -->
+        <button class="add-to-cart">Add to Cart<br><i class="bi bi-cart-plus"></i></button>
+        <!-- add to cart button -->
+      </div>
+      <div class="product">
+        <!-- product containing div -->
+        <h3 class="title">Professional Website (html / css)</h3>
+        <!-- item name -->
+        <img class="image" src="photos/filetype-html.svg" />
+        <!-- product image -->
+        <strong class="price">$500</strong>
+        <!-- item price -->
+        <button class="add-to-cart">Add to Cart<br><i class="bi bi-cart-plus"></i></button>
+        <!-- add to cart button -->
+      </div>
+      <div class="product">
+        <!-- product containing div -->
+        <h3 class="title">Professional web app</h3>
+        <!-- item name -->
+        <img class="image" src="photos/menu-button.svg" />
+        <!-- product image -->
+        <strong class="price">$5000</strong>
+        <!-- item price -->
+        <button class="add-to-cart">Add to Cart<br><i class="bi bi-cart-plus"></i></button>
+        <!-- add to cart button -->
+      </div>
+    </div>
+    </div>
+    <section class="container content-section">
+      <h2 class="section-header">Cart</h2>
+      <div class="cart-row">
+          <span class="cart-item cart-header cart-column">Item</span>
+          <span class="cart-price cart-header cart-column">Price</span>
+          <span class="cart-quantity cart-header cart-column">Quantity</span>
+      </div>
+      <div class="cart-items">
+      </div>
+      <div class="cart-total">
+          <strong class="cart-total-title">Total</strong>
+          <span class="cart-total-price">$0</span>
+      </div>
+      <form method="null">
+        <div class="name">
+          <h3>Name:</h3>
+          <input type="text" id="name" placeholder = "Name" required />
+        </div>
+        <!--enter email-->
+        <div class="email">
+          <h3>Email:</h3>
+          <input type="email" id="email" placeholder="Email" required />
+        </div>
+      </form>
+      <button class="purchase">Purchase</button>
+  </section>
+
     <!-- Main Content -->
     <footer style="background-color: #21374c">
       <!-- Grid container -->

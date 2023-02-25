@@ -25,29 +25,40 @@
         const name = $("input[name=name]").val();
         const email = $("input[name=email]").val();
         const message = $("textarea[name=message]").val();
-        $.ajax({
-          method: "POST",
-          url: "https://formsubmit.co/ajax/waldrojo@kean.edu",
-          dataType: "json",
-          accepts: "application/json",
-          data: {
-            // Get name from form
-            name: name,
-            // Get email from form
-            email: email,
-            // Get message from form
-            message: message,
-          },
-          success: (data) => {
-            //alert the user that the message was sent
+        //check if all fields are filled out correctly
+        if (
+          name == "" ||
+          email == "" ||
+          message == "" ||
+          !email.includes("@")
+        ) {
+          alert("Please fill out all fields correctly");
+          return;
+        } else {
+          $.ajax({
+            method: "POST",
+            url: "https://formsubmit.co/ajax/waldrojo@kean.edu",
+            dataType: "json",
+            accepts: "application/json",
+            data: {
+              // Get name from form
+              name: name,
+              // Get email from form
+              email: email,
+              // Get message from form
+              message: message,
+            },
+            success: (data) => {
+              //alert the user that the message was sent
 
-            alert("Thank you " + name + " for your message!");
+              alert("Thank you " + name + " for your message!");
 
-            //go back to home page
-            window.location.href = "index.html";
-          },
-          error: (err) => console.log(err),
-        });
+              //go back to home page
+              window.location.href = "index.html";
+            },
+            error: (err) => console.log(err),
+          });
+        }
       }
     </script>
   </head>
