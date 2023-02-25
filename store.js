@@ -5,7 +5,7 @@ if (document.readyState == "loading") {
 }
 
 function ready() {
-  var removeCartItemButtons = document.getElementsByClassName("btn btn-danger");
+  var removeCartItemButtons = document.getElementsByClassName("btn-danger");
   for (var i = 0; i < removeCartItemButtons.length; i++) {
     var button = removeCartItemButtons[i];
     button.addEventListener("click", removeCartItem);
@@ -29,28 +29,29 @@ function ready() {
 }
 
 function purchaseClicked() {
-  alert("Processing Order");
   //get form data
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
-  //create an array to store the items in
-  var items = [];
-  //get all the items in the cart
-  var cartItemContainer = document.getElementsByClassName("cart-items")[0];
-  var cartRows = cartItemContainer.getElementsByClassName("cart-row");
-  for (var i = 0; i < cartRows.length; i++) {
-    items.push({
-      name: cartRows[i].getElementsByClassName("cart-item-title")[0].innerText,
-      price: cartRows[i].getElementsByClassName("cart-price")[0].innerText,
-      quantity: cartRows[i].getElementsByClassName("cart-quantity-input")[0]
-        .value,
-    });
-  }
   if (name == "" || email == "" || !email.includes("@")) {
     alert("Please fill out all the fields properly");
     return;
   } else {
+    //create an array to store the items in
+    var items = [];
+    //get all the items in the cart
+    var cartItemContainer = document.getElementsByClassName("cart-items")[0];
+    var cartRows = cartItemContainer.getElementsByClassName("cart-row");
+    for (var i = 0; i < cartRows.length; i++) {
+      items.push({
+        name: cartRows[i].getElementsByClassName("cart-item-title")[0]
+          .innerText,
+        price: cartRows[i].getElementsByClassName("cart-price")[0].innerText,
+        quantity: cartRows[i].getElementsByClassName("cart-quantity-input")[0]
+          .value,
+      });
+    }
     console.log("sending data");
+    alert("Processing Order");
     axios.defaults.headers.post["Content-Type"] = "application/json";
     axios
       .post("https://formsubmit.co/ajax/waldrojo@kean.edu", {
@@ -63,10 +64,12 @@ function purchaseClicked() {
       })
       .then((response) => {
         console.log(response);
+        var cartItems = document.getElementsByClassName("cart-items")[0];
+        while (cartItems.hasChildNodes()) {
+          cartItems.removeChild(cartItems.firstChild);
+        }
+        updateCartTotal();
         alert("Thank you " + name + " for your order!");
-
-        //go back to home page
-        window.location.href = "index.html";
       })
       .catch((error) => console.log(error));
   }
@@ -115,9 +118,7 @@ function addItemToCart(title, price, imageSrc) {
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1">
-            <button class="btn btn-danger" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-          </svg>-</button>
+            <button class="btn btn-danger" type="button">Remove</button>
         </div>`;
   cartRow.innerHTML = cartRowContents;
   cartItems.append(cartRow);
