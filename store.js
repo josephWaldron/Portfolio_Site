@@ -50,8 +50,16 @@ function purchaseClicked() {
           .value,
       });
     }
-    console.log("sending data");
-    alert("Processing Order");
+    var cartItems = document.getElementsByClassName("cart-items")[0];
+    while (cartItems.hasChildNodes()) {
+      cartItems.removeChild(cartItems.firstChild);
+    }
+    updateCartTotal();
+    alert(
+      "Thank you " +
+        name +
+        " for your order! Joseph will send a conformation email ASAP!"
+    ); //moved data sending to the end
     axios.defaults.headers.post["Content-Type"] = "application/json";
     axios
       .post("https://formsubmit.co/ajax/waldrojo@kean.edu", {
@@ -64,12 +72,6 @@ function purchaseClicked() {
       })
       .then((response) => {
         console.log(response);
-        var cartItems = document.getElementsByClassName("cart-items")[0];
-        while (cartItems.hasChildNodes()) {
-          cartItems.removeChild(cartItems.firstChild);
-        }
-        updateCartTotal();
-        alert("Thank you " + name + " for your order!");
       })
       .catch((error) => console.log(error));
   }

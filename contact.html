@@ -20,7 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
       // Create a submit form function
-      function submitForm() {
+      async function submitForm() {
         // Get the form data
         const name = $("input[name=name]").val();
         const email = $("input[name=email]").val();
@@ -35,6 +35,10 @@
           alert("Please fill out all fields correctly");
           return;
         } else {
+          alert("Thank you " + name + " for your message!");
+
+          //go back to home page
+          window.location.href = "index.html";
           $.ajax({
             method: "POST",
             url: "https://formsubmit.co/ajax/waldrojo@kean.edu",
@@ -50,11 +54,6 @@
             },
             success: (data) => {
               //alert the user that the message was sent
-
-              alert("Thank you " + name + " for your message!");
-
-              //go back to home page
-              window.location.href = "index.html";
             },
             error: (err) => console.log(err),
           });
