@@ -30,6 +30,8 @@ function ready() {
 
 function purchaseClicked() {
   //get form data
+  const total =
+    document.getElementsByClassName("cart-total-price")[0].innerText;
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
   if (name == "" || email == "" || !email.includes("@")) {
@@ -58,9 +60,12 @@ function purchaseClicked() {
     alert(
       "Thank you " +
         name +
-        " for your order! Joseph will send a conformation email ASAP!"
+        " for your order! With a cost of " +
+        total +
+        " Joseph will send a conformation email ASAP!"
     );
-    window.location.href = "index.html";
+
+    //window.location.href = "index.html";
     //moved data sending to the end
     axios.defaults.headers.post["Content-Type"] = "application/json";
     axios
@@ -69,7 +74,7 @@ function purchaseClicked() {
         name: name,
         email: email,
         //send items in cart as json
-        total: document.getElementsByClassName("cart-total-price")[0].innerText,
+        total: total,
         items: JSON.stringify(items),
       })
       .then((response) => {
